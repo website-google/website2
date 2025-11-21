@@ -1,0 +1,413 @@
+/* Base Styles */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #F4E1D2;
+  color: #383838;
+  box-sizing: border-box;
+}
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+/* Header */
+header {
+  background: url("images/headerbg2.jpg") no-repeat center center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 100px;
+  background-size: cover;
+  overflow: hidden;
+}
+header::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(122, 58, 9, 0.8);
+  z-index: 0;
+}
+.logo, .menu-icon, nav { position: relative; z-index: 2; }
+.logo-link { position: relative; z-index: 2; }
+.logo {
+  max-height: 120px;
+  width: auto;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+.logo:hover {
+  transform: scale(1.08);
+  filter: drop-shadow(0 0 18px rgba(247, 202, 121, 1));
+}
+.menu-icon {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 28px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: #F4E1D2;
+  z-index: 3;
+}
+
+/* Side Menu */
+.side-menu {
+  height: 100%;
+  width: 260px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #383838;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  padding-top: 60px;
+  z-index: 1000;
+}
+.side-menu.open { transform: translateX(0); }
+.side-menu a {
+  display: block;
+  padding: 12px 20px;
+  color: #F4E1D2;
+  text-decoration: none;
+  font-size: 18px;
+}
+.side-menu a:hover { background: #BF7D3A; }
+.closebtn {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  font-size: 30px;
+  background: none;
+  border: none;
+  color: #F4E1D2;
+  cursor: pointer;
+}
+
+/* Recognition Banner (stacked vertically) */
+.recognition-banner {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: #000;
+  max-height: 70vh;
+}
+.recog-text {
+  padding: 20px;
+  text-align: center;
+  max-height: 35vh;
+  background-color: rgb(255, 255, 255);
+  color: #000000;
+  font-family: 'Playfair Display', serif;
+}
+.recog-text h2 {
+  font-size: 4rem;
+  margin-bottom: 10px;
+}
+.recog-text p {
+  font-size: 2rem;
+  margin: 5px 0;
+}
+.recog-text .awards {
+  font-size: 3rem;
+  font-style: italic;
+  letter-spacing: 2px;
+}
+.recog-image {
+  width: 100%;
+  overflow: hidden;
+  background-color: #fff;
+}
+.recog-image img {
+  width: 100%;
+  max-height: 45vh; /* cap the height */
+  object-fit: contain;
+}
+
+/* Slideshow */
+.slideshow-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+.slideshow {
+  width: 100%;
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+}
+.slideshow img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 12px;
+}
+.slideshow-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(128, 78, 39, 0.7);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  z-index: 2;
+  pointer-events: none;
+}
+.slideshow-overlay h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(24px, 5vw, 48px);
+  font-weight: 700;
+  color: #F4E1D2;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.4);
+  margin-bottom: 10px;
+}
+.slideshow-overlay p {
+  font-family: 'Italiana', serif;
+  font-size: clamp(14px, 3vw, 24px);
+  color: #F4E1D2;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+  margin: 0;
+}
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(128,78,39,0.7);
+  color: #F4E1D2;
+  border: none;
+  padding: 10px 12px;
+  border-radius: 6px;
+  z-index: 10;
+}
+.prev { left: 8px; }
+.next { right: 8px; }
+
+/* Enquiry Section */
+.enquiry-section {
+  position: relative;
+  width: 100%;
+  min-height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  overflow: hidden;
+  z-index: 2;
+}
+.enquiry-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("images/enquirybg.png") no-repeat center center;
+  background-size: cover;
+  filter: blur(5px);
+  z-index: 0;
+}
+.enquiry-overlay {
+  position: relative;
+  z-index: 1;
+  background: rgba(36, 13, 13, 0.7);
+  border-radius: 20px;
+  padding: 30px;
+  max-width: 600px;
+  width: 100%;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.enquiry-overlay h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  font-weight: 700;
+  color: #fff7f1;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 6px rgba(56,56,56,0.4);
+}
+.enquiry-overlay form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.enquiry-overlay input,
+.enquiry-overlay textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #BF7D3A;
+  border-radius: 8px;
+  font-size: 16px;
+  font-family: 'Italiana', serif;
+}
+.enquiry-overlay button {
+  background: #804E27;
+  color: #F4E1D2;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+  align-self: flex-start;
+  transition: background 0.3s ease;
+}
+.enquiry-overlay button:hover { background: #BF7D3A; }
+
+/* Review Generator */
+.generator {
+  position: relative;
+  padding: 60px 20px;
+  text-align: center;
+  background: url(images/rgbg.png) center/cover no-repeat;
+  background-color: #ffd000;
+  color: #383838;
+  z-index: 1;
+}
+.generator::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(56, 56, 56, 0.6);
+  z-index: 0;
+}
+.generator h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 42px;
+  font-weight: 700;
+  color: #F7CA79;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 30px;
+  position: relative;
+  z-index: 2;
+  text-shadow: 2px 2px 6px rgba(56, 56, 56, 0.8),
+               0 0 12px rgba(247, 202, 121, 0.6);
+}
+/* Review Card */
+.review-card {
+  position: relative;
+  z-index: 1;
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+  padding: 30px 20px;
+  max-width: 720px;
+  margin: 0 auto;
+}
+.review-card p {
+  font-family: 'Italiana', serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.6;
+  color: #383838;
+  background: rgba(244, 225, 210, 0.8);
+  padding: 16px 20px;
+  border-radius: 12px;
+  box-shadow: inset 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* Review Actions */
+.review-actions {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+.review-actions button,
+.review-actions .review-btn {
+  background: #804E27;
+  color: #F4E1D2;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+.review-actions button:hover,
+.review-actions .review-btn:hover {
+  background: #BF7D3A;
+  transform: translateY(-2px);
+}
+#copyBtn { background: #3498db; }
+#copyBtn:hover { background: #2c80c9; }
+.copy-msg {
+  min-height: 24px;
+  font-weight: bold;
+  color: #804E27;
+}
+
+/* Overlay */
+.overlay {
+  position: fixed;
+  inset: 0;
+}
+
+/* Footer */
+.luxury-footer {
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  padding: 20px 10px;
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+.luxury-footer p { margin: 0; }
+
+/* ===========================
+   Mobile Friendly Overrides
+   =========================== */
+@media (max-width: 768px) {
+  body { font-size: 14px; }
+
+  /* Header */
+  header { height: 70px; }
+  .logo { max-height: 60px; }
+  .menu-icon {
+    font-size: 32px;       /* bigger icon */
+    left: 16px;            /* slight spacing from edge */
+    padding: 8px 12px;     /* enlarge clickable area */
+    border-radius: 6px;    /* optional rounded background */
+    background: rgba(128, 78, 39, 0.7); /* optional background for visibility */
+    color: #F4E1D2;        /* keep luxury theme */
+  }
+  /* Recognition Banner */
+  .recog-text h2 { font-size: 1.4rem; }
+  .recog-text p, .recog-text .awards { font-size: 0.9rem; }
+  .recog-image { height: 200px; }
+
+  /* Slideshow */
+  .slideshow-overlay h2 { font-size: 22px; }
+  .slideshow-overlay p { font-size: 14px; }
+  .slideshow img { border-radius: 8px; }
+
+  /* Enquiry Section */
+  .enquiry-section { padding: 20px; min-height: auto; }
+  .enquiry-overlay { padding: 20px; max-width: 95%; }
+  .enquiry-overlay h2 { font-size: 24px; }
+  .enquiry-overlay input,
+  .enquiry-overlay textarea { font-size: 14px; }
+  .enquiry-overlay button { font-size: 14px; padding: 10px 18px; }
+
+  /* Review Generator */
+  .generator { padding: 40px 15px; }
+  .generator h2 { font-size: 28px; }
+  .review-card { padding: 20px 15px; }
+  .review-card p { font-size: 16px; }
+  .review-actions button,
+  .review-actions .review-btn { font-size: 14px; padding: 10px 14px; }
+
+  /* Footer */
+  .luxury-footer { padding: 15px 8px; font-size: 14px; }
+}

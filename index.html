@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Kalash Marriage Lawn</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <button class="menu-icon" id="menuToggle">☰</button>
+    <a href="index.html" class="logo-link">
+      <img src="images/Logo.png" alt="Kalash Marriage Lawn Logo" class="logo">
+    </a>
+  </header>
+
+  <!-- Side Menu -->
+  <nav id="sideMenu" class="side-menu">
+    <button class="closebtn" id="menuClose">×</button>
+    <a href="index.html">Home</a>
+    <a href="photos.html">Photos</a>
+    <a href="aboutus.html">About Us</a>
+    <a href="owners.html">Owners</a>
+    <a href="contactus.html">Contact Us</a>
+  </nav>
+  <div id="overlay" class="overlay"></div>
+
+  <!-- Recognition Banner (stacked vertically) -->
+  <section class="recognition-banner">
+    <div class="recog-text">
+      <h2>Chinhat’s Pride, Locality's Finest Venue</h2>
+      <p>Kalash Marriage Lawn has been celebrated for its Ethnic Elegance and Luxurious Experience — 2025</p>
+      <p class="awards">2005 • 2010 • 2015 • 2020 • 2025</p>
+    </div>
+    <div class="recog-image">
+      <img src="images/Logo.png" alt="Recognition Image">
+    </div>
+  </section>
+
+  <!-- Enquiry Section -->
+  <section class="enquiry-section">
+    <div class="enquiry-overlay">
+      <h2>Enquiry</h2>
+      <form id="whatsappForm">
+        <input type="text" id="name" placeholder="Your Name" required>
+        <input type="email" id="email" placeholder="Your Email" required>
+        <textarea id="message" placeholder="Your Message" rows="5" required></textarea>
+        <button type="submit">Submit Enquiry</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Slideshow -->
+  <section class="slideshow-wrapper">
+    <div class="slideshow-overlay">
+      <h2>KALASH MARRIAGE LAWN</h2>
+      <p>Ethnic, Luxurious, Authentic</p>
+    </div>
+    <div class="slideshow">
+      <img src="images/img-1.jpg" alt="Stage">
+      <img src="images/img-2.webp" alt="Bar">
+      <img src="images/img-3.webp" alt="Buffet">
+      <img src="images/img-4.webp" alt="Open Air Buffet">
+      <img src="images/img-5.webp" alt="Outdoor Space">
+      <img src="images/img-6.webp" alt="Stage">
+      <img src="images/img-7.webp" alt="Open Air Lawn">
+      <img src="images/img-8.webp" alt="Outdoor Seating Space">
+      <img src="images/img-9.webp" alt="Outdoor VIP Area">
+      <img src="images/img-10.webp" alt="Open Air Lawn">
+    </div>
+    <button class="prev" onclick="changeSlide(-1)">❮</button>
+    <button class="next" onclick="changeSlide(1)">❯</button>
+  </section>
+
+  <!-- Review Generator -->
+  <section class="generator">
+    <h2>DROP A QUICK REVIEW</h2>
+    <div class="review-card">
+      <p id="reviewText"></p>
+      <div class="review-actions">
+        <button id="copyBtn">📋 Copy</button>
+        <button id="newReviewBtn">🔄 New Review</button>
+        <a id="mapsBtn" class="review-btn" target="_blank">⭐ Post Review</a>
+      </div>
+    </div>
+    <p id="copyMsg" class="copy-msg"></p>
+  </section>
+
+  <!-- Footer -->
+  <footer class="luxury-footer">
+    <p>&copy; 2025 Kalash Marriage Lawn | Designed by Ishu</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
