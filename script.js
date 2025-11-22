@@ -163,15 +163,10 @@ document.getElementById("copyBtn").addEventListener("click", () => {
 });
 
 // Universal Google review link
-document.getElementById("mapsBtn").addEventListener("click", function(e) {
-  e.preventDefault();
-  const review = document.getElementById("reviewText").innerText;
-  const mapsUrl = "https://search.google.com/local/writereview?placeid=ChIJMRToX2fimzkRUan3u1DooSM";
-  window.open(mapsUrl, "_blank");
-});
-
+// Universal Google review link
 const placeId = "ChIJMRToX2fimzkRUan3u1DooSM";
 const mapsBtn = document.getElementById("mapsBtn");
+mapsBtn.href = `https://search.google.com/local/writereview?placeid=${placeId}`;
 
 //Enquiry Form
 document.addEventListener("DOMContentLoaded", function () {
@@ -213,3 +208,4 @@ if (enquiryForm) {
     window.open(whatsappURL, "_blank");
   });
 }
+
