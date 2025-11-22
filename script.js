@@ -169,6 +169,7 @@ document.getElementById("mapsBtn").addEventListener("click", function(e) {
   const mapsUrl = "https://search.google.com/local/writereview?placeid=ChIJMRToX2fimzkRUan3u1DooSM";
   window.open(mapsUrl, "_blank");
 });
+
 const placeId = "ChIJMRToX2fimzkRUan3u1DooSM";
 const mapsBtn = document.getElementById("mapsBtn");
 
@@ -212,5 +213,3 @@ if (enquiryForm) {
     window.open(whatsappURL, "_blank");
   });
 }
-
-
