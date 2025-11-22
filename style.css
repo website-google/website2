@@ -328,6 +328,7 @@ header::after {
   color: #F4E1D2;
   border: none;
   padding: 12px 18px;
+  text-decoration: none;
   border-radius: 8px;
   cursor: pointer;
   font-size: 16px;
