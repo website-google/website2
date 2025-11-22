@@ -163,6 +163,12 @@ document.getElementById("copyBtn").addEventListener("click", () => {
 });
 
 // Universal Google review link
+document.getElementById("mapsBtn").addEventListener("click", function(e) {
+  e.preventDefault();
+  const review = document.getElementById("reviewText").innerText;
+  const mapsUrl = "https://search.google.com/local/writereview?placeid=hIJMRToX2fimzkRUan3u1DooSM";
+  window.open(mapsUrl, "_blank");
+});
 const placeId = "ChIJMRToX2fimzkRUan3u1DooSM";
 const mapsBtn = document.getElementById("mapsBtn");
 
@@ -206,3 +212,4 @@ if (enquiryForm) {
     window.open(whatsappURL, "_blank");
   });
 }
+
