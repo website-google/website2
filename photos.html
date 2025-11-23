@@ -3,12 +3,235 @@
 <head>
   <meta charset="UTF-8">
   <title>Photos</title>
-  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Inline CSS -->
+  <style>
+    /* Reset */
+   body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #F4E1D2;
+  color: #383838;
+  box-sizing: border-box;
+}
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+/* Header */
+header {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 150px;
+  background-size: cover;
+  overflow: hidden;
+}
+
+header::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgb(255, 255, 255);
+  z-index: 0;
+}
+
+.logo, .menu-icon, nav { position: relative; z-index: 2; }
+.logo-link { position: relative; z-index: 2; }
+
+.logo {
+  max-height: 120px;
+  width: auto;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+.logo img {
+  height: auto;
+  max-width: 100%;
+  display: block;
+}
+
+/* Hover effect for logo */
+.logo:hover {
+  transform: scale(1.08);
+  filter: drop-shadow(0 0 18px rgba(247, 202, 121, 1));
+}
+
+/* Menu Icon */
+.menu-icon {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 80px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: #974200;
+  z-index: 3;
+}
+
+/* Side Menu (Full Screen Overlay) */
+.side-menu {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #ffffff;
+  transform: translateX(-100%);
+  transition: transform 0.4s ease;
+  padding-top: 80px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.side-menu.open { transform: translateX(0); }
+
+/* Menu Links */
+.side-menu a {
+  display: block;
+  margin: 20px 0;
+  color: #000000;
+  text-decoration: none;
+  font-size: 42px;
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+.side-menu a:hover {
+  color: #BF7D3A;
+}
+
+/* Close Button */
+.closebtn {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  font-size: 60px;
+  background: none;
+  border: none;
+  color: #000000;
+  cursor: pointer;
+  font-family: 'Playfair Display', serif;
+}
+
+/* Footer */
+.luxury-footer {
+  text-align: center;
+  padding: 20px;
+  background: #111;
+  color: #fff;
+  font-family: 'Playfair Display', serif;
+}
+
+/* Slideshow */
+.manual-slideshow {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background: #000;
+}
+.slide-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.slide-container img {
+  display: none;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Navigation buttons */
+.prev1, .next1 {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.55);
+  color: #fff;
+  border: none;
+  padding: 12px 18px;
+  cursor: pointer;
+  font-size: 22px;
+  border-radius: 6px;
+  z-index: 2;
+  user-select: none;
+}
+.prev1 { left: 20px; }
+.next1 { right: 20px; }
+.prev1:hover, .next1:hover {
+  background: rgba(0,0,0,0.85);
+}
+
+/* Fade effect */
+.fade {
+  animation: fadeIn 500ms ease-in-out;
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* -------------------- Responsive Adjustments -------------------- */
+
+/* Tablet */
+@media (max-width: 768px) {
+  header {
+    height: 120px;
+  }
+  .logo {
+    max-height: 90px;
+  }
+  .menu-icon {
+    font-size: 60px;
+  }
+  .side-menu a {
+    font-size: 32px;
+  }
+  .closebtn {
+    font-size: 48px;
+    right: 20px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  header {
+    height: 100px;
+  }
+  .logo {
+    max-height: 70px;
+  }
+  .menu-icon {
+    font-size: 40px;
+    left: 15px;
+  }
+  .side-menu a {
+    font-size: 24px;
+  }
+  .closebtn {
+    font-size: 36px;
+    right: 15px;
+  }
+}
+
+  </style>
 </head>
 <body>
   <header>
     <button class="menu-icon" id="menuToggle">☰</button>
-    <h1>Kalash Marriage Lawn</h1>
+    <a href="index.html" class="logo-link">
+      <img src="images/logo3.png" alt="Kalash Marriage Lawn Logo" class="logo">
+    </a>
   </header>
 
   <nav id="sideMenu" class="side-menu">
@@ -18,29 +241,122 @@
     <a href="aboutus.html">About Us</a>
     <a href="owners.html">Owners</a>
     <a href="contactus.html">Contact Us</a>
-
   </nav>
 
   <div id="overlay" class="overlay"></div>
 
-  <section>
-    <h2>Photos</h2>
-    <img src="images/img-1.jpg" alt="Stage">
-    <img src="images/img-2.webp" alt="Bar">
-    <img src="images/img-3.webp" alt="Buffet">
-    <img src="images/img-4.webp" alt="Open Air Buffet">
-    <img src="images/img-5.webp" alt="Outdoor Space">
-    <img src="images/img-6.webp" alt="Stage">
-    <img src="images/img-7.webp" alt="Open Air Lawn">
-    <img src="images/img-8.webp" alt="Outdoor Seating Space">
-    <img src="images/img-9.webp" alt="Outdoor VIP Area">
-    <img src="images/img-10.webp" alt="Open Air Lawn">
+  <!-- Slideshow -->
+  <section class="manual-slideshow" id="photosSlideshow">
+    <div class="slide-container">
+      <img src="images/img-1.jpg" alt="Stage">
+      <img src="images/img-2.webp" alt="Bar">
+      <img src="images/img-3.webp" alt="Buffet">
+      <img src="images/img-4.webp" alt="Open Air Buffet">
+      <img src="images/img-5.webp" alt="Outdoor Space">
+      <img src="images/img-6.webp" alt="Stage">
+      <img src="images/img-7.webp" alt="Open Air Lawn">
+      <img src="images/img-8.webp" alt="Outdoor Seating Space">
+      <img src="images/img-9.webp" alt="Outdoor VIP Area">
+      <img src="images/img-10.webp" alt="Open Air Lawn">
+    </div>
+    <button class="prev1" onclick="changeSlidePhotos(-1)">❮</button>
+    <button class="next1" onclick="changeSlidePhotos(1)">❯</button>
   </section>
 
-  <footer>
+  <footer class="luxury-footer">
     <p>&copy; 2025 Kalash Marriage Lawn | Designed by Ishu</p>
   </footer>
 
-  <script src="script.js"></script>
+  <!-- Inline JS -->
+  <script>
+    // Menu toggle
+const sideMenu = document.getElementById('sideMenu');
+const overlay = document.getElementById('overlay');
+const menuToggle = document.getElementById('menuToggle');
+const menuClose = document.getElementById('menuClose');
+
+function openMenu() {
+  sideMenu.classList.add('open');
+  overlay.classList.add('show');
+}
+function closeMenu() {
+  sideMenu.classList.remove('open');
+  overlay.classList.remove('show');
+}
+function toggleMenu() {
+  document.getElementById("sideMenu").classList.toggle("open");
+}
+
+menuToggle.addEventListener('click', () => {
+  sideMenu.classList.contains('open') ? closeMenu() : openMenu();
+});
+menuClose.addEventListener('click', closeMenu);
+overlay.addEventListener('click', closeMenu);
+
+    // Namespaced slideshow — global functions for inline buttons
+    let currentSlidePhotos = 0;
+    let autoSlideIntervalPhotos = null;
+    const AUTO_INTERVAL_MS = 20000; // 20 seconds
+
+    function getSlides() {
+      const container = document.querySelector("#photosSlideshow .slide-container");
+      return container ? Array.from(container.querySelectorAll("img")) : [];
+    }
+
+    function showSlidePhotos(index) {
+      const slides = getSlides();
+      if (slides.length === 0) return;
+
+      // Wrap-around
+      if (index >= slides.length) index = 0;
+      if (index < 0) index = slides.length - 1;
+
+      // Hide all
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+        slides[i].classList.remove("fade");
+      }
+
+      // Show current
+      slides[index].style.display = "block";
+      slides[index].classList.add("fade");
+      currentSlidePhotos = index;
+    }
+
+    function changeSlidePhotos(step) {
+      showSlidePhotos(currentSlidePhotos + step);
+      resetAutoSlidePhotos();
+    }
+
+    function startAutoSlidePhotos() {
+      stopAutoSlidePhotos();
+      autoSlideIntervalPhotos = setInterval(() => {
+        showSlidePhotos(currentSlidePhotos + 1);
+      }, AUTO_INTERVAL_MS);
+    }
+
+    function stopAutoSlidePhotos() {
+      if (autoSlideIntervalPhotos) {
+        clearInterval(autoSlideIntervalPhotos);
+        autoSlideIntervalPhotos = null;
+      }
+    }
+
+    function resetAutoSlidePhotos() {
+      startAutoSlidePhotos();
+    }
+
+    // Initialize after DOM is ready
+    document.addEventListener("DOMContentLoaded", function() {
+      showSlidePhotos(0);
+      startAutoSlidePhotos();
+    });
+
+    // Optional: keyboard navigation
+    document.addEventListener("keydown", function(e) {
+      if (e.key === "ArrowLeft") changeSlidePhotos(-1);
+      if (e.key === "ArrowRight") changeSlidePhotos(1);
+    });
+  </script>
 </body>
 </html>
