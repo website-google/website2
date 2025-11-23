@@ -12,7 +12,7 @@
   <header>
     <button class="menu-icon" id="menuToggle">☰</button>
     <a href="index.html" class="logo-link">
-      <img src="images/Logo.png" alt="Kalash Marriage Lawn Logo" class="logo">
+      <img src="images/logo3.png" alt="Kalash Marriage Lawn Logo" class="logo">
     </a>
   </header>
 
@@ -28,16 +28,26 @@
   <div id="overlay" class="overlay"></div>
 
   <!-- Recognition Banner (stacked vertically) -->
-  <section class="recognition-banner">
+<section class="recognition-container">
+  <div class="recognition-banner">
     <div class="recog-text">
-      <h2>Chinhat’s Pride, Locality's Finest Venue</h2>
+      <h1>Upto 70% off</h1>
+      <h2>on Prime Decor Items</h2>
       <p>Kalash Marriage Lawn has been celebrated for its Ethnic Elegance and Luxurious Experience — 2025</p>
       <p class="awards">2005 • 2010 • 2015 • 2020 • 2025</p>
     </div>
-    <div class="recog-image">
-      <img src="images/Logo.png" alt="Recognition Image">
+  </div>
+
+  <div class="recognition-image">
+    <div class="recog-text">
+      <div class="recog-image">
+        <img src="images/Logo.png" alt="Recognition Image">
+      </div>
     </div>
-  </section>
+  </div>
+</section>
+
+
 
   <!-- Enquiry Section -->
   <section class="enquiry-section">
@@ -52,7 +62,21 @@
     </div>
   </section>
 
+  <!-- Offers Section -->
+  <section class="offers-section">
+  <div class="offers-container">
+    <h2 class="offers-heading">🎉 Upto 70% Off on Select Prime Items!</h2>
+    <p class="offers-subtext">Celebrate your special day with unmatched elegance and savings at Kalash Marriage Lawn.</p>
+    <div class="offers-buttons">
+      <a href="aboutus.html" class="offers-btn">About Us</a>
+      <a href="https://wa.me/916388028416" class="offers-btn whatsapp-btn" target="_blank">Contact Us</a>
+    </div>
+  </div>
+</section>
+
+
   <!-- Slideshow -->
+  <a href="photos.html" class="slideshow-link">
   <section class="slideshow-wrapper">
     <div class="slideshow-overlay">
       <h2>KALASH MARRIAGE LAWN</h2>
@@ -69,10 +93,39 @@
       <img src="images/img-8.webp" alt="Outdoor Seating Space">
       <img src="images/img-9.webp" alt="Outdoor VIP Area">
       <img src="images/img-10.webp" alt="Open Air Lawn">
+      <img src="images/img-1.jpg" alt="Stage">
+      <img src="images/img-2.webp" alt="Bar">
+      <img src="images/img-3.webp" alt="Buffet">
+      <img src="images/img-4.webp" alt="Open Air Buffet">
+      <img src="images/img-5.webp" alt="Outdoor Space">
+      <img src="images/img-6.webp" alt="Stage">
+      <img src="images/img-7.webp" alt="Open Air Lawn">
+      <img src="images/img-8.webp" alt="Outdoor Seating Space">
+      <img src="images/img-9.webp" alt="Outdoor VIP Area">
+      <img src="images/img-10.webp" alt="Open Air Lawn">
     </div>
     <button class="prev" onclick="changeSlide(-1)">❮</button>
     <button class="next" onclick="changeSlide(1)">❯</button>
   </section>
+  </a>
+
+  <!-- Map Button-->
+   <section class="map-section">
+  <div class="map-container">
+    <!-- Embedded Google Map (shows by default) -->
+    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13907.479645599504!2d81.03402638118607!3d26.86798141473913!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399be2675fe81431%3A0x23a1e850bbf7a951!2skalash%20Marriage%20Lawn!5e1!3m2!1sen!2sin!4v1763826612518!5m2!1sen!2sin" 
+    width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+    <!-- Button that opens Google Maps -->
+    <div class="map-button-container">
+      <a href="https://maps.app.goo.gl/ADbus59ijtA4rEXC9" 
+         target="_blank" 
+         class="map-btn">
+        Open Maps
+      </a>
+    </div>
+  </div>
+</section>
 
   <!-- Review Generator -->
   <section class="generator">
@@ -96,5 +149,3 @@
   <script src="script.js"></script>
 </body>
 </html>
-
-
