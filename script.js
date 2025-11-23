@@ -163,10 +163,15 @@ document.getElementById("copyBtn").addEventListener("click", () => {
 });
 
 // Universal Google review link
-// Universal Google review link
+document.getElementById("mapsBtn").addEventListener("click", function(e) {
+  e.preventDefault();
+  const review = document.getElementById("reviewText").innerText;
+  const mapsUrl = "https://search.google.com/local/writereview?placeid=ChIJMRToX2fimzkRUan3u1DooSM";
+  window.open(mapsUrl, "_blank");
+});
+
 const placeId = "ChIJMRToX2fimzkRUan3u1DooSM";
 const mapsBtn = document.getElementById("mapsBtn");
-mapsBtn.href = `https://search.google.com/local/writereview?placeid=${placeId}`;
 
 //Enquiry Form
 document.addEventListener("DOMContentLoaded", function () {
@@ -208,4 +213,81 @@ if (enquiryForm) {
     window.open(whatsappURL, "_blank");
   });
 }
+
+// Robust, conflict-free slideshow for photos.html
+(function () {
+  const slideshow = document.getElementById('photosSlideshow');
+  if (!slideshow) return; // only run on photos.html
+
+  const container = slideshow.querySelector('.slide-container');
+  const slides = Array.from(container.querySelectorAll('img'));
+  const prevBtn = slideshow.querySelector('.prev1');
+  const nextBtn = slideshow.querySelector('.next1');
+
+  // Guard: no slides found
+  if (slides.length === 0) return;
+
+  let current = 0;
+  let timerId = null;
+  const INTERVAL_MS = 20000; // 20 seconds
+
+  function render(index) {
+    // Wrap around
+    if (index >= slides.length) index = 0;
+    if (index < 0) index = slides.length - 1;
+
+    // Hide all, show one
+    for (let i = 0; i < slides.length; i++) {
+      slides[i].style.display = 'none';
+    }
+    slides[index].style.display = 'block';
+
+    current = index;
+  }
+
+  function next() {
+    render(current + 1);
+    resetTimer();
+  }
+
+  function prev() {
+    render(current - 1);
+    resetTimer();
+  }
+
+  function startTimer() {
+    stopTimer();
+    timerId = setInterval(() => {
+      render(current + 1);
+    }, INTERVAL_MS);
+  }
+
+  function stopTimer() {
+    if (timerId) {
+      clearInterval(timerId);
+      timerId = null;
+    }
+  }
+
+  function resetTimer() {
+    startTimer();
+  }
+
+  // Wire buttons via JS (no inline onclick)
+  prevBtn.addEventListener('click', prev);
+  nextBtn.addEventListener('click', next);
+
+  // Optional: keyboard navigation
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') prev();
+    if (e.key === 'ArrowRight') next();
+  });
+
+  // Initialize
+  render(0);
+  startTimer();
+})();
+
+
+
 
